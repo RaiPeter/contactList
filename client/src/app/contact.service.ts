@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Contact } from "./contact";
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
@@ -14,8 +13,8 @@ export class ContactService {
   
   //retrieing contacts
   
-  getContacts():Observable<Contact>{
-    return this.http.get<Contact>('http://localhost:3000/api/contacts');
+  getContacts():Observable<Contact[]>{
+    return this.http.get<Contact[]>('http://localhost:3000/api/contacts');
     
   }
   
@@ -28,7 +27,7 @@ export class ContactService {
   
   //delete a contact
 deleteContact(id){
-  return this.http.delete('https://ocalhost:3000/api/contact/'+id);
+  return this.http.delete('http://localhost:3000/api/contact/'+id);
 }
 
 }
